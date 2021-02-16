@@ -6,7 +6,7 @@ import '@tensorflow/tfjs-backend-cpu';
 
 import * as tf from '@tensorflow/tfjs';
 import * as handpose from '@tensorflow-models/handpose';
-
+import * as fp from 'fingerpose';
 import Webcam from 'react-webcam';
 import { drawHand } from '../util/drawHand';
 
