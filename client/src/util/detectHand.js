@@ -4,8 +4,9 @@ import '@tensorflow/tfjs-backend-cpu';
 
 import * as tf from '@tensorflow/tfjs';
 import * as handpose from '@tensorflow-models/handpose';
-import * as fp from 'fingerpose';
 import { drawHand } from './drawHand';
+
+import detectGesture from './detectGesture';
 
 const fps = 24;
 
@@ -35,19 +36,8 @@ const detectHand = async (webcamRef, canvasRef) => {
 
 			// Make Detections
 			const hand = await model.estimateHands(video);
-			console.log(hand);
-			// Log coords of keypoints
-			// if (hand.length > 0) {
-			// 	for (let i = 0; i < hand.length; i++) {
-			// 		const keypoints = hand[i].landmarks;
-			// 		console.log(keypoints);
-			// 		Log hand keypoints.
-			// 		for (let i = 0; i < keypoints.length; i++) {
-			// 			const [x, y, z] = keypoints[i];
-			// 			console.log(`Keypoint ${i}: [${x}, ${y}, ${z}]`);
-			// 		}
-			// 	}
-			// }
+
+			console.log(detectGesture(hand));
 
 			// Draw mesh
 			const ctx = canvasRef.current.getContext('2d');

@@ -6,9 +6,7 @@ const WebcamComponent = () => {
 	const webcamRef = useRef(null);
 	const canvasRef = useRef(null);
 
-	useEffect(() => {
-		detectHand(webcamRef, canvasRef);
-	}, [webcamRef, canvasRef]);
+	useEffect(() => detectHand(webcamRef, canvasRef), [webcamRef, canvasRef]);
 
 	return (
 		<div className="App">
