@@ -8,7 +8,7 @@ const initExpress = (app, http) => {
 	app.use(require('express').static('client/build'));
 
 	process.env.NODE_ENV === 'production' &&
-		app.use(require('./controllers/toHTTPS')());
+		app.use(require('../controllers/toHTTPS')());
 
 	// serve
 	app.get('*', (req, res) => {
